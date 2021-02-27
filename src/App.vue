@@ -3,8 +3,9 @@
     <div class="layout-container">
         <ul class="example-list">
           <li
-            class="example-item" 
             v-for="example in options" :key="example" 
+            class="example-item" 
+            :class="{selected: selectedOption==example}"
             @click="selectedOption=example">
             {{ example }}
           </li>
@@ -26,7 +27,7 @@ import DomainExample from "./views/composition/DomainExample.vue"
 import TypeScriptExample from "./views/composition/TypeScriptExample.vue"
 
 const state = reactive({
-  options: ['domain', 'typescript'],
+  options: ['domain', 'typescript', 'composable'],
   selectedOption: 'domain'
 })
 
@@ -83,9 +84,11 @@ const {options, selectedOption } = toRefs(state)
   padding: .5rem;
   text-align: left;
   transition: all ease .3s;
+  border-radius: .275rem;
+  margin: 2px 0;
 
-  &:hover {
-    background: #2c3e50;
+  &:hover,&.selected {
+    background: #173858bb;
     color: white;
   }
 }

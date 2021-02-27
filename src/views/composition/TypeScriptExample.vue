@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <slot></slot>
-    <h4> TypeScript </h4>
+    <h4> TypeScript Example</h4>
     <!-- tag searcher -->
     <div class="form-group">
       <label for="search">Filter Tag: </label>
@@ -47,7 +47,7 @@ interface StateType  {
 
 const state: StateType = reactive({
   searchText: "",
-  list: ["javascript", "hashnode", "vue", "vuex", "vue3"],
+  list: ["javascript", "hashnode", "vue", "vuex", "vue3", "typescript", 'vscode'],
   count: 0,
 });
 

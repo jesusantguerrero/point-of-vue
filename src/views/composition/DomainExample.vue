@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <slot></slot>
-    <h4> Domain </h4>
+    <h4> Domain Example </h4>
     <!-- tag searcher -->
     <div class="form-group">
         <label for="search" >Filter Tag: </label>
