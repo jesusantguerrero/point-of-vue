@@ -1,18 +1,40 @@
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <DomainExample></DomainExample>
-    <TypeScriptExample></TypeScriptExample>
+    <div class="layout-container">
+        <ul class="example-list">
+          <li
+            class="example-item" 
+            v-for="example in options" :key="example" 
+            @click="selectedOption=example">
+            {{ example }}
+          </li>
+        </ul>
+        <div class="example-display">
+          <h2 class="title"> From my point of Vue: Composition API</h2>
+          <div class="example-display__presenter">
+            <DomainExample v-if="selectedOption=='domain'"></DomainExample>
+            <TypeScriptExample v-if="selectedOption=='typescript'"></TypeScriptExample>
+          </div>
+        </div>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { reactive, toRefs } from "vue"
 import DomainExample from "./views/composition/DomainExample.vue"
-import TypeScriptExample from "./views/composition/TypesScriptExample.vue"
+import TypeScriptExample from "./views/composition/TypeScriptExample.vue"
+
+const state = reactive({
+  options: ['domain', 'typescript'],
+  selectedOption: 'domain'
+})
+
+const {options, selectedOption } = toRefs(state)
 
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -20,5 +42,51 @@ import TypeScriptExample from "./views/composition/TypesScriptExample.vue"
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.layout-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.example-list {
+
+  width: 240px;
+  list-style: none;
+  margin: 67px 5px;
+}
+
+.example-display {
+  max-width: 825px;
+  min-width: 288px;
+  width: 100%;
+
+  &__presenter {
+    background: whitesmoke;
+    padding: 15px 0;
+  }
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+
+.title {
+  color: #2c3e50;
+}
+
+.example-item {
+  text-transform: capitalize;
+  cursor: pointer;
+  padding: .5rem;
+  text-align: left;
+  transition: all ease .3s;
+
+  &:hover {
+    background: #2c3e50;
+    color: white;
+  }
 }
 </style>

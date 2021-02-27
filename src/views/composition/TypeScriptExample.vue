@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <slot></slot>
+    <h4> TypeScript </h4>
     <!-- tag searcher -->
     <div class="form-group">
       <label for="search">Filter Tag: </label>
@@ -34,22 +36,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ComputedRef } from "vue";
+import { computed, reactive } from "vue";
 
-type stateType = {
+
+interface StateType  {
     searchText: string,
     list: string[],
     count: number
 }
 
-const state: stateType = reactive({
+const state: StateType = reactive({
   searchText: "",
   list: ["javascript", "hashnode", "vue", "vuex", "vue3"],
   count: 0,
 });
 
 // search
-const executeSearch = (options: stateType): string[] => {
+const executeSearch = (options: StateType): string[] => {
   if (!options.searchText) {
     return options.list;
   }
