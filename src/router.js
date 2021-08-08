@@ -7,6 +7,7 @@ export default createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/headless', component: Headless },
+        { path: '/composition', component: Composition},
         { path: '/', component: Composition}
     ]
 });

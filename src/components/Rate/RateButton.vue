@@ -4,7 +4,7 @@
         @mouseover="setCurrentHover(current)"
         @mouseout="setCurrentHover(0)"
     > 
-        <slot></slot>
+        <slot>{{current}}</slot>
     </button>
 </template>
 

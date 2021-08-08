@@ -1,12 +1,8 @@
 <template>
   <div>
-    <headless></headless>
+    <router-view></router-view>
   </div>
 </template>
-
-<script setup>
-import Headless from "./views/headless/index.vue"
-</script>
 
 <style lang="scss">
 #app {

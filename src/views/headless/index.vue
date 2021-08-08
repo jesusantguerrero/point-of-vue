@@ -1,19 +1,17 @@
 <template>
   <div class="container">
   <h4 class="font-bold"> The rate is {{ rateValue }} </h4>
-    <Rate v-model="rateValue" :max="10" class="space-x-2 mt-4" v-slot:default="{ current, selected }">
+    <Rate v-model="rateValue" :max="10" class="mt-4 space-x-2" v-slot:default="{ current, selected }">
         <RateButton 
-          class="bg-gray-100 hover:bg-gray-400 hover:text-white hover:border-blue-400 transition border border-gray-200 rounded-lg w-8 font-bold" 
+          class="w-8 font-bold transition bg-gray-100 border border-gray-200 rounded-lg hover:bg-gray-400 hover:text-white hover:border-blue-400" 
           :class="{ 'bg-gray-400 text-white': selected }"
           :current="current"
-        > 
-          {{ current }}
-        </RateButton>
+        /> 
     </Rate>
 
-      <Rate v-model="rateValue" :max="10" class="space-x-2 mt-4" v-slot:default="{ current, selected }">
+      <Rate v-model="rateValue" :max="10" class="mt-4 space-x-2" v-slot:default="{ current, selected }">
         <RateButton 
-          class=" text-gray-400 transition hover:text-yellow-500  rounded-lg w-8 font-bold" 
+          class="w-8 font-bold text-gray-400 transition rounded-lg  hover:text-yellow-500" 
           :class="{ 'text-yellow-500': selected }"
           :current="current"
         > 
