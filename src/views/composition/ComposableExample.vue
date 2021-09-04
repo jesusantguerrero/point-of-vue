@@ -30,26 +30,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from "vue";
+import { reactive, toRefs, unref } from "vue";
+import { useSearch } from "../../utils/useSearch";
 
 const interest = reactive({
   searchText: "",
   list: ['javascript', 'hashnode', 'vue', 'vue3', 'laravel', 'supabase', 'productivity'],
 });
 
-const executeSearch = (searchText: string, list: string[]): string[] => {
-  let filteredList = list
-  if (searchText) {
-    filteredList = list.filter((item) =>
-      item.includes(searchText.toLowerCase())
-    );
-  }
-  return filteredList;
-};
-
-const filteredInterest = computed(() => {
-  return executeSearch(interest.searchText, interest.list);
-});
+const { searchText, list } = toRefs(interest);
+const { filteredList: filteredInterest } = useSearch(searchText, list);
 </script>
 
 <style lang="scss">

@@ -13,8 +13,9 @@
         <div class="example-display">
           <h2 class="title"> From my point of Vue: Composition API</h2>
           <div class="example-display__presenter">
-            <DomainExample v-if="selectedOption=='domain'"></DomainExample>
-            <TypeScriptExample v-if="selectedOption=='typescript'"></TypeScriptExample>
+            <DomainExample v-if="selectedOption=='domain'" />
+            <TypeScriptExample v-if="selectedOption=='typescript'" />
+            <ComposableExample v-if="selectedOption == 'composable'" />
           </div>
         </div>
     </div>
@@ -25,6 +26,7 @@
 import { reactive, toRefs } from "vue"
 import DomainExample from "./DomainExample.vue"
 import TypeScriptExample from "./TypeScriptExample.vue"
+import ComposableExample from "./ComposableExample.vue"
 
 const state = reactive({
   options: ['domain', 'typescript', 'composable'],
